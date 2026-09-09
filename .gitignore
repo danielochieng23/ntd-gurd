@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# generated report / preview artifacts from scripts/
+scripts/out-*.pdf
+scripts/letterhead*.pdf
+scripts/letterhead*.png

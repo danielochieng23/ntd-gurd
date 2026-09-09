@@ -1,26 +1,101 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --deep-lake: #063B46;
+  --maji-teal: #087F8C;
+  --signal-gold: #F2B84B;
+  --outbreak-coral: #EB5D5D;
+  --mist: #F4F8F7;
+  --charcoal: #102A2E;
+
+  --font-heading: var(--font-manrope);
+  --font-body: var(--font-ibm-plex-sans);
+  --font-data: var(--font-ibm-plex-mono);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html, body {
+  height: 100%;
+  overflow: hidden;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--mist);
+  color: var(--charcoal);
+  font-family: var(--font-body), sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), sans-serif;
+  font-weight: 700;
+}
+
+button {
+  font-family: var(--font-heading), sans-serif;
+}
+
+input, select, textarea {
+  font-family: var(--font-body), sans-serif;
+}
+
+.font-heading {
+  font-family: var(--font-heading), sans-serif;
+}
+
+.font-body {
+  font-family: var(--font-body), sans-serif;
+}
+
+.font-data,
+.font-mono {
+  font-family: var(--font-data), monospace;
+}
+
+/* Fixed-width digits keep stacked figures (risk scores, table columns) aligned */
+[style*="--font-data"] {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #c8d8da; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #a0b8bc; }
+
+/* Google Maps overlays should inherit brand typography */
+.gm-style {
+  font-family: var(--font-body), sans-serif;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* Slide in */
+@keyframes slideIn {
+  from { transform: translateX(40px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.recharts-text,
+.recharts-legend-item-text,
+.recharts-tooltip-item {
+  font-family: var(--font-body), sans-serif !important;
+}
+
+.recharts-cartesian-axis-tick-value {
+  font-family: var(--font-data), monospace !important;
+  font-variant-numeric: tabular-nums;
 }
